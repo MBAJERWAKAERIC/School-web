@@ -6,35 +6,35 @@ from app_users.forms import UserForm, UserProfileInfoForm
 def index(request):
     return HttpResponse('this is my first page')
 
-
-    def register(request):
+    
+def register(request):
 
         registered = False
 
         if request.method == "POST":
-            UserForm(data=request.POS)
+            userform = UserForm(data=request.POS)
             profile_form = UserProfileInfoForm(data=request.POST)
 
-        if User_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
             user.save()
 
             profile = profile_form.save(commit=False)
-            profile.user = user_profile
+            profile.user = user
             profile.save()
 
             registered = True
         else:
-            print(user_form.errors,profile_form.errors)
+            print(user_form.errors, profile_form.errors)
 
-            else:
-                user_form = UserForm()
-                profile_form = UserProfileInfoForm()
+  
+        user_form = UserForm()
+        profile_form = UserProfileInfoForm()
 
-            return render(request, 'app_users/registration.html',
-                                    {'registered':registered,
-                                    'user_form':user_form,
-                                    'profile_form:profile_form'})
+        return render(request, 'app_users/registration.html',
+                             {'registered':registered,
+                              'user_form':user_form,
+                             'profile_form':profile_form})
 
 
 
