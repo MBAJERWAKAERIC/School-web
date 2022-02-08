@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.models import User
-from app_users.models import UserProfileInfo
 from django.contrib.auth.forms import UserCreationForm
 
 class UserForm(UserCreationForm):
@@ -22,9 +21,9 @@ class UserForm(UserCreationForm):
             parent = 'parent'
             user_types ={
                 (student, 'student'),
-                (parent,'parent')
+                (parent,'parent'),
             }
-            user_type = forms.ChoiceField(requiresTrue, choises=user_types)
+            user_type = forms.ChoiceField(required=True, Choice = user_types),
 
             class Meta():
                 model = User_ProfileInfo
