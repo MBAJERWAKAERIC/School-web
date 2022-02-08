@@ -1,0 +1,15 @@
+{%extends 'home.html' %} {%block content %}
+
+<form method="post">
+    {%csrf_token%}
+    <label form="username">Username</label>
+    <input type="text" name="username" pplaceholder="Username" class="form-control">
+
+    <label for="password">pasword:</label>
+    <imput type="password" name="password" class="form-control"></imput>
+
+    <input type="submit" value="login">
+
+</form>
+
+{%endblock %}

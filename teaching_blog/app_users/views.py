@@ -40,7 +40,7 @@ def register(request):
                              'profile_form':profile_form})
 
 def user_login(request):
-    if request.method == "POST"
+    if request.method=="POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -52,7 +52,7 @@ def user_login(request):
                 return HttpResponseRedirerct(reverse('index'))
             else:
                 return HttpResponse("ACOUNT IS DEACTIVATED")
-         else:
+        else:
                 return HttpResponse("please use the correct ID and password")
 
     else:
