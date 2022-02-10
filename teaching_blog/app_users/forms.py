@@ -23,9 +23,9 @@ class UserForm(UserCreationForm):
                 (student, 'student'),
                 (parent,'parent'),
             }
-            user_type = forms.ChoiceField(required=True, Choice = user_types),
+            user_type = forms.ChoiceField(required=True, ),
 
             class Meta():
-                model = User_ProfileInfo
-                field = ('bio', 'profile_pic', 'user_type')
+                model = ('User_ProfileInfo')
+                fields = ('bio', 'profile_pic', 'user_type')
                 
